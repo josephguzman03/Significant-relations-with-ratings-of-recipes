@@ -19,11 +19,11 @@ Our dataset initially consisted of 83,782 rows and 13 columns. Through through t
 - `calories` : The calories present per recipe
 
 ***
-```recipes_cleaned = recipes.drop(columns=['description','steps','submitted','tags','ingredients'])
-recipes_cleaned['calories'] = recipes_cleaned['nutrition'].apply(lambda x: x.split(',')[0][1:]).astype(float)
-recipes_cleaned = recipes_cleaned.drop(columns = ['nutrition'])
-average_rating_mean = recipes_cleaned['average_rating'].mean()
-recipes_cleaned['average_rating'].fillna(average_rating_mean, inplace=True)
-recipes_cleaned = recipes_cleaned.drop_duplicates()
-recipes_cleaned['name'].fillna(np.nan, inplace=True)
-recipes_cleaned```
+    ```recipes_cleaned = recipes.drop(columns=['description','steps','submitted','tags','ingredients'])
+    recipes_cleaned['calories'] = recipes_cleaned['nutrition'].apply(lambda x: x.split(',')[0][1:]).astype(float)
+    recipes_cleaned = recipes_cleaned.drop(columns = ['nutrition'])
+    average_rating_mean = recipes_cleaned['average_rating'].mean()
+    recipes_cleaned['average_rating'].fillna(average_rating_mean, inplace=True)
+    recipes_cleaned = recipes_cleaned.drop_duplicates()
+    recipes_cleaned['name'].fillna(np.nan, inplace=True)
+    recipes_cleaned```
