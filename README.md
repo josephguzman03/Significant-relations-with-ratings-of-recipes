@@ -25,4 +25,4 @@ average_rating_mean = recipes_cleaned['average_rating'].mean()
 recipes_cleaned['average_rating'].fillna(average_rating_mean, inplace=True)
 recipes_cleaned = recipes_cleaned.drop_duplicates()
 recipes_cleaned['name'].fillna(np.nan, inplace=True)
-''' </code>
+''' </code> 
