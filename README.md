@@ -18,8 +18,7 @@ Our dataset initially consisted of 83,782 rows and 13 columns. Through through t
 - `average_rating` : The average rating the recipe received on a scale of 0 to 5
 - `calories` : The calories present per recipe
 
-
-<code> 
+***
 <python>
     recipes_cleaned = recipes.drop(columns=['description','steps','submitted','tags','ingredients'])
     recipes_cleaned['calories'] = recipes_cleaned['nutrition'].apply(lambda x: x.split(',')[0][1:]).astype(float)
@@ -29,4 +28,3 @@ Our dataset initially consisted of 83,782 rows and 13 columns. Through through t
     recipes_cleaned = recipes_cleaned.drop_duplicates()
     recipes_cleaned['name'].fillna(np.nan, inplace=True)
 </python>
-</code> 
