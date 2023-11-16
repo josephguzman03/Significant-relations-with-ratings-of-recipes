@@ -57,7 +57,7 @@ recipes_cleaned['name'].fillna(np.nan, inplace=True)
 # Finally, recipes_cleaned is the final output of data.
 recipes_cleaned.head()
 ```
-
+<table>
 | name                                 |     id |   minutes |   contributor_id |   n_steps |   n_ingredients |   average_rating |   first_nutrition |
 |:-------------------------------------|-------:|----------:|-----------------:|----------:|----------------:|-----------------:|------------------:|
 | 1 brownies in the world    best ever | 333281 |        40 |           985201 |        10 |               9 |                4 |             138.4 |
@@ -65,7 +65,7 @@ recipes_cleaned.head()
 | 412 broccoli casserole               | 306168 |        40 |            50969 |         6 |               9 |                5 |             194.8 |
 | millionaire pound cake               | 286009 |       120 |           461724 |         7 |               7 |                5 |             878.3 |
 | 2000 meatloaf                        | 475785 |        90 |          2202916 |        17 |              13 |                5 |             267   |
-
+</table>
 ---
 
 ## Assessment of Missingness
