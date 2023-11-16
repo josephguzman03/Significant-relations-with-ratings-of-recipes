@@ -30,8 +30,8 @@ Now that we finished dropping the columns, we also needed to form a new column `
 
 After we form the nutrition column, we need to ensure that there are no duplicates in the column, as to not cause any faulty reading, however, before doing that, we need to take into account the average rating, to ensure that the mean of all the ratings per recipe are taking into account. Moreover, we will also replace all values marked as **NaN** with a 0, to ensure that no value is left out.
 
-``py
-`recipes_cleaned = recipes.drop(columns=['description','steps','submitted','tags','ingredients'])
+```py
+recipes_cleaned = recipes.drop(columns=['description','steps','submitted','tags','ingredients'])
 recipes_cleaned['calories'] = recipes_cleaned['nutrition'].apply(lambda x: x.split(',')[0][1:]).astype(float)
 recipes_cleaned = recipes_cleaned.drop(columns = ['nutrition'])
 average_rating_mean = recipes_cleaned['average_rating'].mean()
