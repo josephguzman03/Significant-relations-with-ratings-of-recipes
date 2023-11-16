@@ -78,7 +78,17 @@ recipes_cleaned.head()
 
 ---
 
+**Univariate Analysis**
+
+**Bivariate Analysis**
+
+**Interesting Aggregates**
+
 ## Assessment of Missingness
+
+**NMAR Analysis**
+
+**Missing Depedency**
 
 ---
 
