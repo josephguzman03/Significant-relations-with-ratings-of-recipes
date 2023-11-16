@@ -31,6 +31,21 @@ Now that we finished dropping the columns, we also needed to form a new column `
 After we form the nutrition column, we need to ensure that there are no duplicates in the column, as to not cause any faulty reading, however, before doing that, we need to take into account the average rating, to ensure that the mean of all the ratings per recipe are taking into account. Moreover, we will also replace all values marked as **NaN** with a 0, to ensure that no value is left out.
 
 ```py
+# First we had to combined both the csv files into one dataset. 
+recipes = pd.read_csv('food_data/RAW_recipes.csv')
+interactions = pd.read_csv('food_data/RAW_interactions.csv')
+
+merged = pd.merge(recipes, interactions, left_on='id', right_on='recipe_id', how='left')
+
+merged['rating'].replace(0, np.nan, inplace=True) 
+average_rating_per_recipe = merged.groupby('id')['rating'].mean()
+recipes = pd.merge(recipes, average_rating_per_recipe, left_on='id', right_index=True, how='left')
+recipes.rename(columns={'rating': 'average_rating'}, inplace=True)
+
+# recipes is a dataset that has both recipes and interactions
+recipes
+
+# Now we had to clean and appropiate our data with the necessary items for our research. 
 recipes_cleaned = recipes.drop(columns=['description','steps','submitted','tags','ingredients'])
 recipes_cleaned['calories'] = recipes_cleaned['nutrition'].apply(lambda x: x.split(',')[0][1:]).astype(float)
 recipes_cleaned = recipes_cleaned.drop(columns = ['nutrition'])
@@ -38,7 +53,9 @@ average_rating_mean = recipes_cleaned['average_rating'].mean()
 recipes_cleaned['average_rating'].fillna(average_rating_mean, inplace=True)
 recipes_cleaned = recipes_cleaned.drop_duplicates()
 recipes_cleaned['name'].fillna(np.nan, inplace=True)
-print(recipes_cleaned.head().to_markdown(index=False))
+
+# Finally, recipes_cleaned is the final output of data.
+recipes_cleaned.head()
 ```
 | name                                 |     id |   minutes |   contributor_id |   n_steps |   n_ingredients |   average_rating |   first_nutrition |
 |:-------------------------------------|-------:|----------:|-----------------:|----------:|----------------:|-----------------:|------------------:|
