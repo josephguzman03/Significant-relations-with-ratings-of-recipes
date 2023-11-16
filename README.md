@@ -133,4 +133,11 @@ Secondly, from the above data,there happens to be a big cluster of data when the
 
 ## Hypothesis Testing
 
+
+<iframe src="assets/comparison.html" width=800 height=600 frameBorder=0></iframe>
+
+
+<iframe src="assets/empirical_distribution.html" width=800 height=600 frameBorder=0></iframe>
+
+
 ---
