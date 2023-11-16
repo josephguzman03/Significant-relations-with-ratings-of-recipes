@@ -24,6 +24,16 @@ Our dataset initially consisted of 83,782 rows and 13 columns. Through through t
 
 ## Cleaning and EDA
 
+**Data Cleaning**
+
+In order to make the dataframe more easily understandable, as well as easier to work with, we began by removing columns that were irrelevent to the topic that we were working on. This not only made it easier to work with the dataframe, but it also helped in making the dataframe run faster, thus saving us more time.
+We columns which we removed were:
+- `description` : Gives a breif description of the recipe which the user might prepare
+- `steps` : Gives an overview of the process in order to make the recipe
+- `submitted` : Gives the date of publishing
+- `tags` : Gives a slogan under which the recipe comes under
+- `ingredients` : Gives a list of ingredients one may need to complete the recipe
+
 As you can see from the desctiption below, none of the columns which we've dropped have anything to do with *our project*, since none of them coorelate with the calories of the recipe.
 
 Now that we finished dropping the columns, we also needed to form a new column `first_nutrition`, which takes the `nutrition` column, and returns the first value of the list for each individual row. No that this new column is formed, there no use for the `nutrition` column anymore, so we can remove that too.
