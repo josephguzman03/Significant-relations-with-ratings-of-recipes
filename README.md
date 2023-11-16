@@ -133,11 +133,51 @@ Secondly, from the above data,there happens to be a big cluster of data when the
 
 ## Hypothesis Testing
 
+Futhering our analysis, we still yet have to get to the bottom of our question: Does the calories specified of a recipe, affect the average ratings of that recipe itself?
+
+For the purpose of our analysis, we will consider recipies higher than or equal to 4.0, to be high-rating.
+
+*`Null Hypothesis (*H0*)`:*
+In the population, the caloric values in restaurants with less than 4 stars and those with greater than or equal to 4 stars have the same distribution.
+
+*`Alternative Hypothesis (*H1*)`:*
+In the population, recipes with a rating higher than 4 stars have a lower caloric value than recipes with a rating lower than 4 stars, on average.
+
+
+*`Permutation Testing`:*
+In order to find the p value, and decide whether to reject or accept the null hypothesis we used the *Absolute Mean test statistic*, since it seemed to be the best fit for this. We worked on different significant levels starting from 0.01 all the way to 0.1, and decided to stick with the significant level(α) of 0.1 since it would allow us to see if there was any possible trend between the caloric value of the recipe as well as its rating.
+
+```py
+recipies_Hyp = recipes_cleaned[['average_rating','first_nutrition']].copy()
+recipies_Hyp['high_rating'] = recipies_Hyp['average_rating'] >= 4.0
+recipies_Hyp['high_rating'] = recipies_Hyp['high_rating'].astype(bool)
+```
+
+|   average_rating |   first_nutrition | high_rating   |
+|-----------------:|------------------:|:--------------|
+|                4 |             138.4 | True          |
+|                5 |             595.1 | True          |
+|                5 |             194.8 | True          |
+|                5 |             878.3 | True          |
+|                5 |             267   | True          |
+
 
 <iframe src="assets/comparison.html" width=800 height=600 frameBorder=0></iframe>
 
+Given that this is soley for comparison, we can identify patterns within the data.
+
+Continuing with our research, we conducted a permutation with `n_repetitions = 1000` using our testing statistic, to measure out different instances of the mean. 
+
+
+```py
+observed_difference = recipies_Hyp.groupby('high_rating')['first_nutrition'].mean().diff().iloc[-1]
+```
+
+The observed_difference is -15.6866. This is then stated over at our empirical distribution over our simulation. 
 
 <iframe src="assets/empirical_distribution.html" width=800 height=600 frameBorder=0></iframe>
 
+Therefore, The p-value which we obtained was 0.077, thus we could Reject the Null Hypothesis. With the help of this test we were able to figure that there is a relationship between the caloric value of a recipe as well as its average rating, however this is simply a trend.
 
+It's important to emphasize that statistical significance does not imply practical significance, and the results should be interpreted in the context of the study and its limitations.
 ---
