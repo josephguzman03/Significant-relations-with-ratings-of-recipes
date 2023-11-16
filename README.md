@@ -126,12 +126,14 @@ agg_by_ingredients
 
 |   n_ingredients |    mean |   count |\n|----------------:|--------:|--------:|\n|               1 | 4.84467 |      14 |\n|               2 | 4.69042 |     747 |\n|               3 | 4.66106 |    2342 |\n|               4 | 4.63369 |    4481 |\n|               5 | 4.64668 |    6580 |\n|               6 | 4.63288 |    7524 |\n|               7 | 4.62411 |    8515 |\n|               8 | 4.61193 |    8923 |\n|               9 | 4.60693 |    8628 |\n|              10 | 4.61073 |    8033 |\n|              11 | 4.62284 |    6965 |\n|              12 | 4.61701 |    5722 |\n|              13 | 4.63165 |    4491 |\n|              14 | 4.61667 |    3234 |\n|              15 | 4.63043 |    2398 |\n|              16 | 4.62502 |    1691 |\n|              17 | 4.63233 |    1143 |\n|              18 | 4.68577 |     777 |\n|              19 | 4.61218 |     510 |\n|              20 | 4.60867 |     381 |\n|              21 | 4.65744 |     220 |\n|              22 | 4.69002 |     143 |\n|              23 | 4.7646  |      99 |\n|              24 | 4.60523 |      74 |\n|              25 | 4.69579 |      43 |\n|              26 | 4.75468 |      29 |\n|              27 | 4.60973 |      23 |\n|              28 | 4.84625 |      18 |\n|              29 | 4.96571 |      10 |\n|              30 | 4.84795 |      12 |\n|              31 | 5       |       8 |\n|              32 | 5       |       2 |\n|              33 | 5       |       1 |\n|              37 | 5       |       1 |
 
+
+
 ```py
 agg_by_calories = recipes_cleaned.groupby('first_nutrition')['average_rating'].agg(['mean', 'count']).reset_index()
 agg_by_calories.head()
 ```
 
-|   first_nutrition |    mean |   count |\n|------------------:|--------:|--------:|\n|               0   | 4.47022 |      26 |\n|               0.1 | 4.56319 |       7 |\n|               0.2 | 5       |       4 |\n|               0.3 | 4.47273 |      11 |\n|               0.4 | 4.6875  |       8 |
+|   first_nutrition |    mean |   count |\n ------------------:|--------:|--------:\n|               0   | 4.47022 |      26 |\n|               0.1 | 4.56319 |       7 |\n|               0.2 | 5       |       4 |\n|               0.3 | 4.47273 |      11 |\n|               0.4 | 4.6875  |       8 |
 
 The dataframe above helps us understand the distribution of the calories with respect to the mean rating. It is a way for us to analyze what type of recipes get used the most based on its caloric levels, as well as, as to how they are rated, which lets us know if higher calorie meals are more favorable, or lesser calorie meals. The count also helps us understand if people prefer *healthier options*, or options that are more *unhealthy*.
 
@@ -168,13 +170,8 @@ recipies_Hyp['high_rating'] = recipies_Hyp['high_rating'].astype(bool)
 recipies_Hyp.head()
 ```
 
-|   average_rating |   first_nutrition | high_rating   |
-|-----------------:|------------------:|:--------------|
-|                4 |             138.4 | True          |
-|                5 |             595.1 | True          |
-|                5 |             194.8 | True          |
-|                5 |             878.3 | True          |
-|                5 |             267   | True          |
+|   first_nutrition |    mean |   count |\n|------------------:|--------:|--------:|\n|               0   | 4.47022 |      26 |\n|               0.1 | 4.56319 |       7 |\n|               0.2 | 5       |       4 |\n|               0.3 | 4.47273 |      11 |\n|               0.4 | 4.6875  |       8 |
+
 
 
 <iframe src="assets/comparison.html" width=800 height=600 frameBorder=0></iframe>
