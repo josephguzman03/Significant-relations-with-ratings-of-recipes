@@ -85,7 +85,7 @@ recipes_cleaned.head()
 
 <iframe src="assets/UA_new_Distribution_of_Recipe_Ratings.html" width=800 height=600 frameBorder=0></iframe>
 
-<iframe src="assets/UA_Distribution_of_Number_of_Ingredients_in_Recipes.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/UANew_Distribution_of Number_of_Ingredients_in_Recipes.html" width=800 height=600 frameBorder=0></iframe>
 
 
 **Univariate Analysis**
