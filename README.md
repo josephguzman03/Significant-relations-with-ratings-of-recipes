@@ -86,6 +86,8 @@ recipes_cleaned.head()
 
 **Interesting Aggregates**
 
+---
+
 ## Assessment of Missingness
 
 **NMAR Analysis**
