@@ -80,6 +80,8 @@ recipes_cleaned.head()
 
 **Univariate Analysis**
 
+<iframe src="assets/UA-Distribution of Recipe Ratings.html" width=800 height=600 frameBorder=0></iframe>
+
 **Bivariate Analysis**
 
 **Interesting Aggregates**
