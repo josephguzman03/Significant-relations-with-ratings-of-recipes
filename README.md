@@ -80,9 +80,24 @@ recipes_cleaned.head()
 
 **Univariate Analysis**
 
-<iframe src="assets/UA-Distribution of Recipe Ratings.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/UA_Distribution_of_Caloric_Values_in_Recipes.html
+" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="assets/UA_new_Distribution_of_Recipe_Ratings.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="assets/UA_Distribution_of_Number_of_Ingredients_in_Recipes.html" width=800 height=600 frameBorder=0></iframe>
+
+
+**Univariate Analysis**
+
 
 **Bivariate Analysis**
+
+<iframe src="assets/BA_Correlation_between_Average_Rating_and_Caloric_Value.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="assets/BA_Correlation_between_Average_Rating_and_Number_of_Ingredients.html" width=800 height=600 frameBorder=0></iframe>
+
+
 
 **Interesting Aggregates**
 
