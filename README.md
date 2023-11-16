@@ -40,7 +40,13 @@ recipes_cleaned = recipes_cleaned.drop_duplicates()
 recipes_cleaned['name'].fillna(np.nan, inplace=True)
 print(recipes_cleaned.head().to_markdown(index=False))
 ```
-
+| name                                 |     id |   minutes |   contributor_id |   n_steps |   n_ingredients |   average_rating |   first_nutrition |
+|:-------------------------------------|-------:|----------:|-----------------:|----------:|----------------:|-----------------:|------------------:|
+| 1 brownies in the world    best ever | 333281 |        40 |           985201 |        10 |               9 |                4 |             138.4 |
+| 1 in canada chocolate chip cookies   | 453467 |        45 |          1848091 |        12 |              11 |                5 |             595.1 |
+| 412 broccoli casserole               | 306168 |        40 |            50969 |         6 |               9 |                5 |             194.8 |
+| millionaire pound cake               | 286009 |       120 |           461724 |         7 |               7 |                5 |             878.3 |
+| 2000 meatloaf                        | 475785 |        90 |          2202916 |        17 |              13 |                5 |             267   |
 ---
 
 ## Assessment of Missingness
