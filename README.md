@@ -14,7 +14,7 @@ Writen by Aryan Shah & Joseph Guzman
 
 ## Introduction
 
-Our project centers around a comprehensive exploration of the 'recipe' dataset, a diverse repository encompassing user-provided recipes along with associated metadata, including the date of publishing, nutritional value, and average ratings. Amidst the myriad of possibilities, our quest for a meaningful question led us to unravel a profound aspect not only concerning the dataset but also shedding light on the intricacies of human behavior in the realm of culinary choices.
+Our project centers around a comprehensive exploration of the `recipe` dataset, a diverse repository encompassing user-provided recipes along with associated metadata, including the date of publishing, nutritional value, and average ratings. Amidst the myriad of possibilities, our quest for a meaningful question led us to unravel a profound aspect not only concerning the dataset but also shedding light on the intricacies of human behavior in the realm of culinary choices.
 
 In our pursuit of a question, we meticulously examined the dataset, aiming to pose an inquiry that could unravel deeper insights into the dynamics of recipe selection. The question that emerged as the focal point of our investigation is:
 
