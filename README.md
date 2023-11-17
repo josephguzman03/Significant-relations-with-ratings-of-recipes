@@ -1,6 +1,14 @@
-# Significant relations with ratings of recipes
-This is a DSC80 project at UC San Diego. Which focus on finding a relationship between the caloric value and its average rating. As well as that of the average number of recipes required and its average rating. 
-written by Aryan Shah & Joseph Guzman
+# Significant Relations With Ratings of Recipes
+
+Welcome to our Data Science 80 (DSC80) project at UC San Diego, where we delve into the captivating realm of culinary exploration. Our project centers around unraveling the intricate relationship between the caloric content of recipes and their corresponding average ratings. This research unfolds across four distinct sections: *Introduction*, *Cleaning and Exploratory Data Analysis (EDA)*, *Assessment of Missingness*, and *Hypothesis Testing*.
+
+In a world where culinary experiences intertwine with daily life, understanding the dynamics of the food we consume becomes paramount. Our curiosity was piqued when we pondered the possibility of a connection between the caloric value of recipes and the subjective measure of their enjoyment—the average rating. It dawned on us that recipes, as a tangible source of consumption, might share similarities with platforms like Yelp reviews and food blogs, where qualitative assessments often intertwine with quantitative elements.
+
+Food is not merely a means of sustenance; it is a cultural, social, and sensory experience. By exploring the correlation between caloric value and ratings, we aim to uncover patterns that extend beyond the plate. This analysis may provide insights into dietary preferences, nutritional awareness, and the complex interplay between flavor and health.
+
+Our journey begins with a meticulous exploration of the dataset, unraveling its nuances to form a cohesive narrative. As we navigate through the stages of data cleaning, EDA, assessment of missingness, and hypothesis testing, we aim to unearth compelling findings that resonate with both food enthusiasts and data aficionados alike.
+
+Writen by Aryan Shah & Joseph Guzman
 
 ---
 
