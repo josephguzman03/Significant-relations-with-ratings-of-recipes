@@ -14,19 +14,25 @@ Writen by Aryan Shah & Joseph Guzman
 
 ## Introduction
 
-Our project focuses on a dataset 'recipe' which, which takes into account the recipe provided by a user, along with any information attached to it, such as: the date of publishing, nutritional value, average ratings etc. Throughout the process of this experiment, we kept on digging deeper to find a question that would help answer an important question, that is not only related to the dataframe, but also helps analyze the human behavior when it came to choosing between recipes. We finally narrowed down to our Question of Interest which is:
+Our project centers around a comprehensive exploration of the 'recipe' dataset, a diverse repository encompassing user-provided recipes along with associated metadata, including the date of publishing, nutritional value, and average ratings. Amidst the myriad of possibilities, our quest for a meaningful question led us to unravel a profound aspect not only concerning the dataset but also shedding light on the intricacies of human behavior in the realm of culinary choices.
 
-**Does the calories specified of a recipe, affect the average ratings of that recipe itself?**
+In our pursuit of a question, we meticulously examined the dataset, aiming to pose an inquiry that could unravel deeper insights into the dynamics of recipe selection. The question that emerged as the focal point of our investigation is:
 
-Our dataset initially consisted of 83,782 rows and 13 columns. Through through the process of data cleansing however, we narrowed it down to 8 columns of which are:
-- `name` : The name of the recipe provided
-- `id` : The id tag provided for each recipe
-- `minutes` : The time taken to execute the recipe
-- `contributor_id` : The personal id for the individual
-- `n_steps` : Takes into account the number of steps needed to execute the recipe
-- `n_ingredients` : The number of ingredients required for the recipe
-- `average_rating` : The average rating the recipe received on a scale of 0 to 5
-- `calories` : The calories present per recipe
+**Does the specified caloric content of a recipe influence its average ratings?**
+
+This inquiry delves into the nexus between the nutritional aspect of a recipe, as quantified by its caloric value, and the subjective assessment of its appeal measured by average ratings. As we navigate through this exploration, we aim to decipher whether the nutritional profile of a recipe plays a discernible role in shaping the overall perception and appreciation of the culinary creation.
+
+Initially comprising 83,782 rows and 13 columns, our dataset underwent meticulous data cleansing to refine its essence. The distilled dataset now features 8 key columns, each contributing unique facets to our analysis:
+- `name` : The distinctive name assigned to each recipe.
+- `id` : A unique identifier tagging each recipe for reference.
+- `minutes` : The time required for the execution of the recipe.
+- `contributor_id` : A personal identifier linking each recipe to its contributor.
+- `n_steps` : The number of steps involved in the recipe's execution.
+- `n_ingredients` : The count of ingredients essential for the recipe.
+- `average_rating` : The average rating garnered by the recipe on a scale ranging from 0 to 5.
+- `calories` : The caloric content per serving of the recipe.
+
+As we embark on this analytical journey, these refined attributes serve as the foundation for unraveling the intricate relationship between caloric value and average ratings, providing a nuanced understanding of the interplay between nutritional components and culinary acclaim.
 
 ---
 
