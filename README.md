@@ -120,7 +120,7 @@ Secondly, from the above data,there happens to be a big cluster of data when the
 
 ```py
 agg_by_ingredients = recipes_cleaned.groupby('n_ingredients')['average_rating'].agg(['mean', 'count']).reset_index()
-agg_by_ingredients
+agg_by_ingredients.head()
 ```
 
 |   n_ingredients |    mean |   count |
@@ -182,7 +182,70 @@ The dataframe above helps us understand the distribution of the calories with re
 
 **NMAR Analysis**
 
+When conducting the NMAR Analysis, we were familar about how the missignness data within columns may affect outcomes of other columns. Upon, looking at our datasets we found that columns that we consider to be NMAR, would `average_ratings`. This is because while looking at our dataframe, we realised that only two columns that had any possible null values: `name` as well as `average_ratings`, and thus we chose `average_ratings`. Moreover, with the help of our *Univariate and Bivariant Analysis* we obsereved that within the scattarplots itself, a mojority of the points were clustered around certain values, which led to us to decide that the `average_ratings` column had some sort of corelation with its dependency.
+
 **Missing Depedency**
+
+To start off, we needed to compare null and non-null values of the `first_nutritution` distributions for `ratings`. We needed to seperate our data to its own data sets because, mentioned earlier, we needed to replace null values for average ratings to conduct our analysis. We decided to cateogrize our calorical values as it would better suit the comparison and provide insight on the relationship between the calories and rating. 
+
+```py
+def group(calorie):
+    if calorie <= 100:
+        return 'Too Low'
+    if 100 < calorie <= 300:
+        return 'Low'
+    elif 300 < calorie <= 800:
+        return 'Healthy'
+    elif 800 < calorie <= 1200:
+        return 'High'
+    else:
+        return 'Excessive'
+```
+Now we decided to clean up our dataset again, without filling in `np.nan`. 
+
+```py
+missing_rating = recipes.drop(columns=['description','steps','submitted','tags','ingredients'])
+missing_rating['first_nutrition'] = missing_rating['nutrition'].apply(lambda x: x.split(',')[0][1:]).astype(float)
+missing_rating = missing_rating.drop(columns = ['nutrition'])
+missing_rating['tracker'] = missing_rating['first_nutrition'].apply(group)
+missing_rating['missing_rating'] = pd.isna(missing_rating['average_rating'])
+missing_rating.head()
+```
+
+| name                                 |     id |   minutes |   contributor_id |   n_steps |   n_ingredients |   average_rating |   first_nutrition | tracker   | missing_rating   |
+|:-------------------------------------|-------:|----------:|-----------------:|----------:|----------------:|-----------------:|------------------:|:----------|:-----------------|
+| 1 brownies in the world    best ever | 333281 |        40 |           985201 |        10 |               9 |                4 |             138.4 | Low       | False            |
+| 1 in canada chocolate chip cookies   | 453467 |        45 |          1848091 |        12 |              11 |                5 |             595.1 | Healthy   | False            |
+| 412 broccoli casserole               | 306168 |        40 |            50969 |         6 |               9 |                5 |             194.8 | Low       | False            |
+| millionaire pound cake               | 286009 |       120 |           461724 |         7 |               7 |                5 |             878.3 | High      | False            |
+| 2000 meatloaf                        | 475785 |        90 |          2202916 |        17 |              13 |                5 |             267   | Low       | False            |
+
+We then created a pivot table of the missing calorical values for each respective `tracker`. 
+
+
+| tracker   |     False |      True |
+|:----------|----------:|----------:|
+| Excessive | 0.0403213 | 0.0670755 |
+| Healthy   | 0.413204  | 0.415102  |
+| High      | 0.0538849 | 0.0678421 |
+| Low       | 0.377207  | 0.340744  |
+| Too Low   | 0.115383  | 0.109237  |
+ 
+
+ Down below is a visual example of the table above as a bar histogram. 
+
+ INSERT GRAPH
+
+```py
+observed_tvd = calorie_dist.diff(axis=1).iloc[:, -1].abs().sum()/ 2
+ ```
+The observeed TVD is 0.0426.
+
+ INSERT GRAPH
+
+
+After collecting our permutation, We reject the null. We stated that the null of  distribution of  `tracker` when `ratings` is missing, would come fromfrom the same as the distribution of 'tracker' when 'ratings' is not missing. Rejecting the null, allowed us to conclude that the missingness in the `ratings` column is **dependent** on `tracker`.
+
 
 ---
 
@@ -192,10 +255,10 @@ Futhering our analysis, we still yet have to get to the bottom of our question: 
 
 For the purpose of our analysis, we will consider recipies higher than or equal to 4.0, to be high-rating.
 
-*`Null Hypothesis (*H0*)`:*
+*`Null Hypothesis (**H0**)`:*
 In the population, the caloric values in restaurants with less than 4 stars and those with greater than or equal to 4 stars have the same distribution.
 
-*`Alternative Hypothesis (*H1*)`:*
+*`Alternative Hypothesis (**H1**)`:*
 In the population, recipes with a rating higher than 4 stars have a lower caloric value than recipes with a rating lower than 4 stars, on average.
 
 
