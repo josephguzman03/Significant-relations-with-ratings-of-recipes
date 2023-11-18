@@ -307,11 +307,26 @@ recipies_Hyp.head()
 |                5 |             267   | True          |
 
 
+We decided to generate an additional dataframe that incorporates a `high_rating` column, a `boolean` indicator detecting whether the `average_rating` column is a **NaN** or not.
+
+
+```py
+recipies_Hyp.groupby('high_rating')['first_nutrition'].agg(['mean', 'count'])
+```
+
+
+| high_rating   |    mean |   count |
+|:--------------|--------:|--------:|
+| False         | 444.612 |    5350 |
+| True          | 428.925 |   78432 |
+
+An aggregated table indicating the mean and count for null and non-null `high_rating` values. 
+
 <iframe src="assets/comparison.html" width=800 height=600 frameBorder=0></iframe>
 
-Given that this is soley for comparison, we can identify patterns within the data.
+Above, the diagram depicts a visual comparison of the probability and the shuffled permutation. Given that this, we can identify patterns within the data.
 
-Persisting in our research, we executed a permutation with `n_repetitions = 1000` employing our testing statistic, thereby generating a multitude of instances to measure variations in the mean.
+We then executed a permutation with `n_repetitions = 1000` employing our testing statistic, thereby generating a multitude of instances to measure variations in the mean.
 
 
 ```py
@@ -323,7 +338,7 @@ The observed_difference is -15.6866. This is then stated over at our empirical d
 <iframe src="assets/empirical_distribution.html" width=800 height=600 frameBorder=0></iframe>
 
 
-As a result, we obtained a p-value of 0.077, allowing us to failed to reject the Null Hypothesis. This aligns with our understanding from the missingness assessments, indicating that with proper data, we could derive more accurate insights. This test reveals a relationship between the caloric value of a recipe and its average rating, although it's important to note that this finding represents more of a trend than a conclusive relationship (also stated within our EDA). 
+As a result, we obtained a p-value of 0.077, which was greater than our significant level, in which we failed to reject the Null Hypothesis. This aligns with our understanding from the missingness assessments, indicating that with proper data, we could derive more accurate insights. This test reveals a relationship between the caloric value of a recipe and its average rating, although it's important to note that this finding represents more of a trend than a conclusive relationship (also stated within our EDA). 
 
 It's crucial to highlight that while statistical significance is observed, its practical implications should be considered in the context of the study and its inherent limitations.
 ---
