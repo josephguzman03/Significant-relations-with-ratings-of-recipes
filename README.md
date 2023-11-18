@@ -277,19 +277,19 @@ Upon gathering our permutations, we reject the null hypothesis, positing that th
 
 ## Hypothesis Testing
 
-Futhering our analysis, we still yet have to get to the bottom of our question: Does the calories specified of a recipe, affect the average ratings of that recipe itself?
+Arriving to our last section of our analysis, we are yet to unravel the answer to our overarching question: Does the specified caloric content of a recipe affect its average ratings?
 
-For the purpose of our analysis, we will consider recipies higher than or equal to 4.0, to be high-rating.
+For the purposes of our analysis, we categorize recipes with a rating higher than or equal to 4.0 as high-rating.
 
 *`Null Hypothesis (**H0**)`:*
-In the population, the caloric values in restaurants with less than 4 stars and those with greater than or equal to 4 stars have the same distribution.
+In the population, the distribution of caloric values in recipes with less than 4 stars is the same as those with greater than or equal to 4 stars.
 
 *`Alternative Hypothesis (**H1**)`:*
-In the population, recipes with a rating higher than 4 stars have a lower caloric value than recipes with a rating lower than 4 stars, on average.
+In the population, recipes with a rating higher than 4 stars exhibit a lower caloric value, on average, than recipes with a rating lower than 4 stars.
 
 
 *`Permutation Testing`:*
-In order to find the p value, and decide whether to reject or accept the null hypothesis we used the *Absolute Mean test statistic*, since it seemed to be the best fit for this. We worked on different significant levels starting from 0.01 all the way to 0.1, and decided to stick with the significant level(α) of 0.1 since it would allow us to see if there was any possible trend between the caloric value of the recipe as well as its rating.
+To find the p-value and make a determination on whether to reject or accept the null hypothesis, we employed the *Absolute Mean test statistic*, deemed most suitable for this scenario. We explored various significance levels ranging from 0.01 to 0.1 and ultimately settled on a significance level (α) of 0.1. This choice allows us to discern potential trends between the caloric value of a recipe and its rating.
 
 ```py
 recipies_Hyp = recipes_cleaned[['average_rating','first_nutrition']].copy()
@@ -311,7 +311,7 @@ recipies_Hyp.head()
 
 Given that this is soley for comparison, we can identify patterns within the data.
 
-Continuing with our research, we conducted a permutation with `n_repetitions = 1000` using our testing statistic, to measure out different instances of the mean. 
+Persisting in our research, we executed a permutation with `n_repetitions = 1000` employing our testing statistic, thereby generating a multitude of instances to measure variations in the mean.
 
 
 ```py
@@ -322,7 +322,8 @@ The observed_difference is -15.6866. This is then stated over at our empirical d
 
 <iframe src="assets/empirical_distribution.html" width=800 height=600 frameBorder=0></iframe>
 
-Therefore, The p-value which we obtained was 0.077, thus we could Reject the Null Hypothesis. With the help of this test we were able to figure that there is a relationship between the caloric value of a recipe as well as its average rating, however this is simply a trend.
 
-It's important to emphasize that statistical significance does not imply practical significance, and the results should be interpreted in the context of the study and its limitations.
+As a result, we obtained a p-value of 0.077, allowing us to reject the Null Hypothesis. This aligns with our understanding from the missingness assessments, indicating that with proper data, we could derive more accurate insights. This test reveals a relationship between the caloric value of a recipe and its average rating, although it's important to note that this finding represents more of a trend than a conclusive relationship (also stated within our EDA). 
+
+It's crucial to highlight that while statistical significance is observed, its practical implications should be considered in the context of the study and its inherent limitations.
 ---
