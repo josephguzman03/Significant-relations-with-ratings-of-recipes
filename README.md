@@ -110,7 +110,7 @@ Initiating our exploration, we investigated the distribution of caloric values i
 <iframe src="assets/UA_new_Distribution_of_Recipe_Ratings.html" width=800 height=600 frameBorder=0></iframe>
 
 
-Continuing our exploration, we shifted our focus to examine the distribution of recipe ratings, revealing a substantial majority with higher ratings. This intriguing observation prompts further investigation into the factors contributing to the prevalent trend of elevated ratings within our dataset.
+Continuing our exploration, we begain to examine the distribution of recipe ratings, revealing a substantial majority with higher ratings. This intriguing observation prompts further investigation into the factors contributing to the prevalent trend of elevated ratings within our dataset.
 
 <iframe src="assets/UANew_Distribution_of Number_of_Ingredients_in_Recipes.html" width=800 height=600 frameBorder=0></iframe>
 
