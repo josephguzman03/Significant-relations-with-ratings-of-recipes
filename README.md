@@ -338,7 +338,7 @@ The observed_difference is -15.6866. This is then stated over at our empirical d
 <iframe src="assets/empirical_distribution.html" width=800 height=600 frameBorder=0></iframe>
 
 
-As a result, we obtained a p-value of 0.077, which was greater than our significant level, in which we failed to reject the Null Hypothesis. This aligns with our understanding from the missingness assessments, indicating that with proper data, we could derive more accurate insights. This test reveals a relationship between the caloric value of a recipe and its average rating, although it's important to note that this finding represents more of a trend than a conclusive relationship (also stated within our EDA). 
+As a result, we obtained a p-value of 0.077, which was greater than our significant level, in which we failed to reject the Null Hypothesis. This aligns with our understanding from the missingness assessments, indicating that with proper data, we could derive more accurate insights. This test reveals a relationship between the caloric value of a recipe and its average rating. In conclusion, this finding within our findings represents more of a trend than a conclusive relationship (also stated within our EDA). 
 
-It's crucial to highlight that while statistical significance is observed, its practical implications should be considered in the context of the study and its inherent limitations.
+It's important to highlight that while statistical significance is observed, its practical implications should be considered in the context of the study and its inherent limitations.
 ---
