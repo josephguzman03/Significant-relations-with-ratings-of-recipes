@@ -124,16 +124,16 @@ Transitioning into our bivariate analysis, our objective was to unveil potential
 
 <iframe src="assets/BA_Correlation_between_Average_Rating_and_Caloric_Value.html" width=800 height=600 frameBorder=0></iframe>
 
-Initially, our observation of the scatter plots revealed a sparse distribution of data points across the axes. Particularly notable is the prevalence of points in the lower left following to the right quadrants, indicating a distinct pattern where lower caloric values align with higher average ratings. 
+Initially, our observation of the scatter plots revealed a sparse distribution of data points across the axes. Particularly notable is the prevalence of points in the lower left quadrants, indicating a distinct count pattern where lower caloric values align with higher average ratings. 
 
 <iframe src="assets/BA_Correlation_between_Average_Rating_and_Number_of_Ingredients.html" width=800 height=600 frameBorder=0></iframe>
 
-Additionally, upon closer examination of the data, a significant cluster becomes apparent, particularly in scenarios where the average rating is higher and the number of ingredients is lower. Although the distribution appears relatively balanced across both axes, a subtle underlying trend is discernible.
+Additionally, upon closer examination of the data, a significant cluster becomes apparent, particularly in scenarios where the average rating is higher and the number of ingredients is lower. Although the distribution appears spanning across both axes, a subtle underlying trend is discernible.
 
 
 **Interesting Aggregates**
 
-oncluding our analysis, during the aggregation of our dataset, we directed our attention to exploring the relationship between `n_ingredients` and `first_nutrition` with `average_rating` to delve deeper into the realm of numeric data. This strategic focus aims to unravel additional layers of insights embedded within the dataset, offering a more comprehensive understanding of the numerical dynamics at play.
+Concluding our analysis, during the aggregation of our dataset, we directed our attention to exploring the relationship between `n_ingredients` and `first_nutrition` with `average_rating` to delve deeper into the realm of numeric data. This strategic focus aims to unravel additional layers of insights embedded within the dataset, offering a more comprehensive understanding of the numerical dynamics at play.
 
 ```py
 agg_by_ingredients = recipes_cleaned.groupby('n_ingredients')['average_rating'].agg(['mean', 'count']).reset_index()
