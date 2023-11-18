@@ -203,11 +203,11 @@ The presented dataframe provides valuable insights into the distribution of calo
 
 **NMAR Analysis**
 
-When conducting the NMAR Analysis, we were familar about how the missignness data within columns may affect outcomes of other columns. Upon, looking at our datasets we found that columns that we consider to be NMAR, would `average_ratings`. This is because while looking at our dataframe, we realised that only two columns that had any possible null values: `name` as well as `average_ratings`, and thus we chose `average_ratings`. Moreover, with the help of our *Univariate and Bivariant Analysis* we obsereved that within the scattarplots itself, a mojority of the points were clustered around certain values, which led to us to decide that the `average_ratings` column had some sort of corelation with its dependency.
+In the course of our NMAR Analysis, we were attuned to the potential impact of missing data within columns on the outcomes of other columns. Upon scrutinizing our datasets, we identified `average_ratings` as a column susceptible to NMAR, as it was one of only two columns with possible null values, the other being `name`. After a meticulous examination, we chose `average_ratings` to be NMAR. Additionally, our Univariate and Bivariate Analysis highlighted a clustering of points within the scatterplots, reinforcing our belief that the `average_ratings` column exhibited a correlation with its dependencies.
 
 **Missing Depedency**
 
-To start off, we needed to compare null and non-null values of the `first_nutritution` distributions for `ratings`. We needed to seperate our data to its own data sets because, mentioned earlier, we needed to replace null values for average ratings to conduct our analysis. We decided to cateogrize our calorical values as it would better suit the comparison and provide insight on the relationship between the calories and rating. 
+To initiate our analysis, we embarked on a comparison between null and non-null values within the `first_nutrition` distributions for ratings. This necessitated the segregation of our data into distinct datasets, as mentioned previously, to facilitate the replacement of null values for average ratings in preparation for our analysis. Opting to categorize our caloric values, we aimed to enhance the clarity of the comparison and glean insights into the nuanced relationship between calories and ratings.
 
 ```py
 def group(calorie):
@@ -222,7 +222,7 @@ def group(calorie):
     else:
         return 'Excessive'
 ```
-Now we decided to clean up our dataset again, without filling in `np.nan`. 
+Now we cleaned up our dataset again, without filling in `np.nan`. 
 
 ```py
 missing_rating = recipes.drop(columns=['description','steps','submitted','tags','ingredients'])
@@ -241,7 +241,7 @@ missing_rating.head()
 | millionaire pound cake               | 286009 |       120 |           461724 |         7 |               7 |                5 |             878.3 | High      | False            |
 | 2000 meatloaf                        | 475785 |        90 |          2202916 |        17 |              13 |                5 |             267   | Low       | False            |
 
-We then created a pivot table of the missing calorical values for each respective `tracker`. 
+Then, we opted to create a pivot table of the missing calorical values for each respective `tracker`. 
 
 
 | tracker   |     False |      True |
@@ -255,17 +255,22 @@ We then created a pivot table of the missing calorical values for each respectiv
 
  Down below is a visual example of the table above as a bar histogram. 
 
- INSERT GRAPH
+
+<iframe src="assets/Tracker_by_Missing_of_Calorical_Values.html" width=800 height=600 frameBorder=0></iframe>
+
 
 ```py
 observed_tvd = calorie_dist.diff(axis=1).iloc[:, -1].abs().sum()/ 2
  ```
+
+
 The observeed TVD is 0.0426.
 
- INSERT GRAPH
+
+<iframe src="assets/Empirical_Distribution_of_the_TVD.html" width=800 height=600 frameBorder=0></iframe>
 
 
-After collecting our permutation, We reject the null. We stated that the null of  distribution of  `tracker` when `ratings` is missing, would come fromfrom the same as the distribution of 'tracker' when 'ratings' is not missing. Rejecting the null, allowed us to conclude that the missingness in the `ratings` column is **dependent** on `tracker`.
+Upon gathering our permutations, we reject the null hypothesis, positing that the distribution of `tracker` when `ratings` is missing originates from the same distribution as when `ratings` is not missing. This rejection enables us to affirm that the missingness in the `ratings` column is **dependent** on `tracker`.
 
 
 ---
