@@ -23,14 +23,14 @@ In our pursuit of a question, we meticulously examined the dataset, aiming to po
 This inquiry delves into the nexus between the nutritional aspect of a recipe, as quantified by its caloric value, and the subjective assessment of its appeal measured by average ratings. As we navigate through this exploration, we aim to decipher whether the nutritional profile of a recipe plays a discernible role in shaping the overall perception and appreciation of the culinary creation.
 
 Initially comprising 83,782 rows and 13 columns, our dataset underwent meticulous data cleansing to refine its essence. The distilled dataset now features 8 key columns, each contributing unique facets to our analysis:
-- `name` : The distinctive name assigned to each recipe.
-- `id` : A unique identifier tagging each recipe for reference.
-- `minutes` : The time required for the execution of the recipe.
-- `contributor_id` : A personal identifier linking each recipe to its contributor.
-- `n_steps` : The number of steps involved in the recipe's execution.
-- `n_ingredients` : The count of ingredients essential for the recipe.
-- `average_rating` : The average rating garnered by the recipe on a scale ranging from 0 to 5.
-- `calories` : The caloric content per serving of the recipe.
+- `name` (`int64`): The distinctive name assigned to each recipe.
+- `id` (`int64`) : A unique identifier tagging each recipe for reference.
+- `minutes` (`int64`) : The time required for the execution of the recipe.
+- `contributor_id` (`int64`): A personal identifier linking each recipe to its contributor.
+- `n_steps` (`int64`) : The number of steps involved in the recipe's execution.
+- `n_ingredients` (`int64`) : The count of ingredients essential for the recipe.
+- `average_rating` (`float64`): The average rating garnered by the recipe on a scale ranging from 0 to 5.
+- `calories` (`float64`) : The caloric content per serving of the recipe.
 
 As we embark on this analytical journey, these refined attributes serve as the foundation for unraveling the intricate relationship between caloric value and average ratings, providing a nuanced understanding of the interplay between nutritional components and culinary acclaim.
 
@@ -289,7 +289,7 @@ In the population, recipes with a rating higher than 4 stars exhibit a lower cal
 
 
 *`Permutation Testing`:*
-To find the p-value and make a determination on whether to reject or accept the null hypothesis, we employed the *Absolute Mean test statistic*, deemed most suitable for this scenario. We explored various significance levels ranging from 0.01 to 0.1 and ultimately settled on a significance level (α) of 0.1. This choice allows us to discern potential trends between the caloric value of a recipe and its rating.
+To find the p-value and make a determination on whether to reject or accept the null hypothesis, we employed the *Absolute Mean test statistic*, deemed most suitable for this scenario. We explored various significance levels ranging from 0.01 to 0.1 and ultimately settled on a significance level (α) of 0.05. This choice allows us to discern potential trends between the caloric value of a recipe and its rating.
 
 ```py
 recipies_Hyp = recipes_cleaned[['average_rating','first_nutrition']].copy()
