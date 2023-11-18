@@ -40,19 +40,21 @@ As we embark on this analytical journey, these refined attributes serve as the f
 
 **Data Cleaning**
 
-In order to make the dataframe more easily understandable, as well as easier to work with, we began by removing columns that were irrelevent to the topic that we were working on. This not only made it easier to work with the dataframe, but it also helped in making the dataframe run faster, thus saving us more time.
-We columns which we removed were:
-- `description` : Gives a breif description of the recipe which the user might prepare
-- `steps` : Gives an overview of the process in order to make the recipe
-- `submitted` : Gives the date of publishing
+To enhance the clarity and efficiency of our dataframe, we initiated a strategic refinement process aimed at excluding columns unrelated to the specific focus of our project. This not only streamlined our interaction with the dataframe but also contributed to a noticeable improvement in its processing speed, consequently optimizing our time utilization.
+
+The removed columns encompassed elements deemed irrelevant to our analytical endeavors, such as:
+
+- `description` : Providing a brief overview of the recipe, potentially aiding users in preparation.
+- `steps` : Outlining the procedural details for crafting the recipe.
+- `submitted` : Indicating the date of recipe publication.
 - `tags` : Gives a slogan under which the recipe comes under
-- `ingredients` : Gives a list of ingredients one may need to complete the recipe
+- `ingredients` : Enumerating the necessary components for completing the recipe.
 
-As you can see from the desctiption below, none of the columns which we've dropped have anything to do with *our project*, since none of them coorelate with the calories of the recipe.
+Evidently, as articulated in the following description, none of the excised columns bore any relevance to the core objective of our *project*, as they failed to exhibit any correlation with the caloric content of the recipes.
 
-Now that we finished dropping the columns, we also needed to form a new column `first_nutrition`, which takes the `nutrition` column, and returns the first value of the list for each individual row. No that this new column is formed, there no use for the `nutrition` column anymore, so we can remove that too.
+Having successfully pruned the dataframe, our attention turned to the creation of a new column, namely `first_nutrition`. This column extracted the initial value from the `nutrition` column for each respective row. With this addition, the `nutrition` column became redundant, prompting its removal.
 
-After we form the nutrition column, we need to ensure that there are no duplicates in the column, as to not cause any faulty reading, however, before doing that, we need to take into account the average rating, to ensure that the mean of all the ratings per recipe are taking into account. Moreover, we will also replace all values marked as **NaN** with a 0, to ensure that no value is left out.
+Subsequent to the introduction of the `first_nutrition` column, a meticulous quality check ensued. This involved the elimination of duplicates to prevent inaccuracies in data interpretation. However, prior to this step, consideration was given to the `average_rating` column to ensure the inclusion of its influence on the mean of all ratings per recipe. Additionally, any instances marked as **NaN** were replaced with 0 to prevent any inadvertent exclusion of values from our analysis. This comprehensive approach ensures the integrity and reliability of our dataset as we delve into the intricate relationship between caloric content and recipe ratings.
 
 ```py
 # First we had to combined both the csv files into one dataset. 
@@ -90,47 +92,48 @@ recipes_cleaned.head()
 | millionaire pound cake               | 286009 |       120 |           461724 |         7 |               7 |                5 |             878.3 |
 | 2000 meatloaf                        | 475785 |        90 |          2202916 |        17 |              13 |                5 |             267   |
 
----
+
+**Exploratory Data Analysis (EDA)**
 
 **Univariate Analysis**
 
-In the univariate analysis, we decided to conduct analysis in three different forms. Each graph, is given a description of the analysis and how it interprets to our research. We decided to conduct our analysis with bar graphs because it allowed us to better understand the relationships of the distributions. 
+For the univariate analysis, we opted for a multifaceted approach, conducting the examination through three distinct forms. Each graph is accompanied by a descriptive analysis, elucidating its relevance to our research and the insights it contributes. The choice of utilizing bar graphs was deliberate, as this visualization method provided a nuanced perspective, enhancing our comprehension of the distributional dynamics inherent in the dataset. This deliberate selection of graphical representation aimed to unravel and articulate the intricate relationships embedded within the data, contributing to a more comprehensive understanding of our research objectives.
 
 
 <iframe src="assets/UA_Distribution_of_Caloric_Values_in_Recipes.html
 " width=800 height=600 frameBorder=0></iframe>
 
 
-To start off, we measured the distribution of calorical values within the amount of recipes and we found out that there was a higher count of recipes of lower calorical value. Although data seems slim, due to the bin size being 100, there is still some sort of correlation happening. 
+Initiating our exploration, we investigated the distribution of caloric values in recipes, revealing a predominant concentration of lower caloric values. Despite a seemingly sparse dataset with a bin size of 100, discernible correlations emerged, hinting at an underlying relationship and prompting further exploration into the nuanced dynamics of caloric values within our dataset.
 
 
 <iframe src="assets/UA_new_Distribution_of_Recipe_Ratings.html" width=800 height=600 frameBorder=0></iframe>
 
 
-Next, we decided to measure the distribution of the recipe ratings within the amount of recpies and it was interesting to point out, that majority of these recipies ranked higher. 
-
+Continuing our exploration, we shifted our focus to examine the distribution of recipe ratings, revealing a substantial majority with higher ratings. This intriguing observation prompts further investigation into the factors contributing to the prevalent trend of elevated ratings within our dataset.
 
 <iframe src="assets/UANew_Distribution_of Number_of_Ingredients_in_Recipes.html" width=800 height=600 frameBorder=0></iframe>
 
 
-Lastly, we decided to measure the distribution of the number of ingredients within the amount of recipies and we notice that there is a bell-shape trend. Pin-pointing the highest to be the average of the number of ingrediants. 
-
+Concluding our univariate analysis, we observed a bell-shaped trend in the distribution of the number of ingredients, with the peak indicating the average number per recipe. This distinctive pattern invites further scrutiny, prompting exploration into the significance and implications of this central tendency within our dataset.
 
 
 **Bivariate Analysis**
 
-In our bivarate analysis, we wanted to see if there were any correlations from our caloric value and number of ingredients to its average rating. We decided to conduct our analysis oin scatter plots because it allowed us a illustrate a dimensional relationships between our comparison. 
+Transitioning into our bivariate analysis, our objective was to unveil potential correlations between caloric value, the number of ingredients, and their collective impact on average ratings. To effectively depict the intricate relationships within these variables, we opted for the use of scatter plots. This graphical approach affords us the ability to visually articulate the dimensional interplay between our chosen parameters, facilitating a nuanced exploration of their mutual influence on recipe ratings.
 
 <iframe src="assets/BA_Correlation_between_Average_Rating_and_Caloric_Value.html" width=800 height=600 frameBorder=0></iframe>
 
-First off, we noticed that the data is thinly scattered across the axis, as there is few points at the top and bottom left. It's very dominate when we recieve a lower caloric value and high average rating. 
+Initially, our observation of the scatter plots revealed a sparse distribution of data points across the axes. Particularly notable is the prevalence of points in the lower left following to the right quadrants, indicating a distinct pattern where lower caloric values align with higher average ratings. 
 
 <iframe src="assets/BA_Correlation_between_Average_Rating_and_Number_of_Ingredients.html" width=800 height=600 frameBorder=0></iframe>
 
-Secondly, from the above data,there happens to be a big cluster of data when the average rating is higher, and the number of ingredents is lower. It happens to be almost evened out acorss both axis, but definetly a trend is occuring.
+Additionally, upon closer examination of the data, a significant cluster becomes apparent, particularly in scenarios where the average rating is higher and the number of ingredients is lower. Although the distribution appears relatively balanced across both axes, a subtle underlying trend is discernible.
 
 
 **Interesting Aggregates**
+
+oncluding our analysis, during the aggregation of our dataset, we directed our attention to exploring the relationship between `n_ingredients` and `first_nutrition` with `average_rating` to delve deeper into the realm of numeric data. This strategic focus aims to unravel additional layers of insights embedded within the dataset, offering a more comprehensive understanding of the numerical dynamics at play.
 
 ```py
 agg_by_ingredients = recipes_cleaned.groupby('n_ingredients')['average_rating'].agg(['mean', 'count']).reset_index()
@@ -174,6 +177,8 @@ agg_by_ingredients.head()
 |              33 | 5       |       1 |
 |              37 | 5       |       1 |
 
+The presented dataframe illustrates the distribution of the number of ingredients in relation to the mean rating, offering insights into the aggregation of means across the board. It reveals a consistent pattern in mean values, even as the number of recipes varies, echoing the stability observed in the scatter plot.
+
 
 ```py
 agg_by_calories = recipes_cleaned.groupby('first_nutrition')['average_rating'].agg(['mean', 'count']).reset_index()
@@ -188,7 +193,9 @@ agg_by_calories.head()
 |               0.3 | 4.47273 |      11 |
 |               0.4 | 4.6875  |       8 |
 
-The dataframe above helps us understand the distribution of the calories with respect to the mean rating. It is a way for us to analyze what type of recipes get used the most based on its caloric levels, as well as, as to how they are rated, which lets us know if higher calorie meals are more favorable, or lesser calorie meals. The count also helps us understand if people prefer *healthier options*, or options that are more *unhealthy*.
+
+The presented dataframe provides valuable insights into the distribution of calories relative to the mean rating. This analysis serves as a pivotal tool for understanding the popularity and reception of different recipe types based on their caloric levels. It enables us to discern patterns in the usage and ratings of recipes, shedding light on whether higher calorie meals are more favorably received or if there is a preference for lower calorie options.
+
 
 ---
 
